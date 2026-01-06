@@ -17,11 +17,9 @@ uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
 | `/speckit.implement`             | `tasks.md` を順に実行して実装を進める（コード生成/変更）([GitHub][1])                 | `tasks.md`（＋既存コード/制約）                                                     | コード変更、タスクのチェック進行など                                                                                                       | Analyze後（最終実装フェーズ）([speckit.org][4]) | いきなり全部走らせるより「小さくコミット/レビュー」前提の運用が安定。逸脱が出たら spec/plan に戻る                                                                    |
 | `/speckit.taskstoissues`         | `tasks.md` を GitHub Issues に変換して登録（追跡をIssue駆動に寄せる）([Zread][5])     | `tasks.md`、GitHub連携（トークン等）、Issueの粒度/ラベル方針                        | GitHub Issue 群の作成（依存順などを反映しやすい）([Zread][5])                                                                              | Tasks作成後（Implement前でも後でも）            | MCP連携ツール（例：`github/github-mcp-server/issue_write`）を使う調整が入っています([GitHub][6]) 運用ルール（ラベル/担当/マイルストン）も constitution に入れると綺麗 |
 
-```
 [1]: https://github.com/github/spec-kit "GitHub - github/spec-kit:  Toolkit to help you get started with Spec-Driven Development"
 [2]: https://blog.serverworks.co.jp/github-spec-kit-guide?utm_source=chatgpt.com "GitHub Spec Kitで始める「仕様駆動開発（Spec-Driven ..."
 [3]: https://tech-lab.sios.jp/archives/50783?utm_source=chatgpt.com "GitHub Spec Kit入門｜AIコーディングエージェントで仕様駆動 ..."
 [4]: https://speckit.org/ "Spec Kit - AI-Powered Specification-Driven Development Toolkit"
 [5]: https://zread.ai/github/spec-kit/15-task-breakdown-and-execution?utm_source=chatgpt.com "Task Breakdown and Execution | github/spec-kit"
 [6]: https://github.com/github/spec-kit/releases?utm_source=chatgpt.com "Releases · github/spec-kit"
-```
