@@ -8,7 +8,7 @@ uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
 ```bash
 specify init . --ai codex
 
-# CODEX_HOMEの設定が必要？
+# CODEX_HOMEの設定
 CODEX_HOME
 ```
 
