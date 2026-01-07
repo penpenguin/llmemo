@@ -20,3 +20,7 @@ Activate the current dir as project using serena
 
 ダッシュボード  
 http://localhost:24282/dashboard/
+
+```bash
+uvx --from git+https://github.com/oraios/serena serena project index
+```
