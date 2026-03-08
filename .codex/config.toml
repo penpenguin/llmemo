@@ -5,6 +5,9 @@ network_access = true
 personality = "pragmatic"
 web_search = "live"
 
+[features]
+js_repl = true
+
 [mcp_servers.chrome-devtools]
 command = "npx"
 args = ["-y", "chrome-devtools-mcp@latest", "--isolated=true", "--browserUrl=http://localhost:9222"]
