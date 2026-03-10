@@ -8,6 +8,6 @@ npx playwright install && npx playwright install-deps
 ```
 
 ```bash
-codex --dangerously-bypass-approvals-and-sandbox
+codex --sandbox danger-full-access
 ```
 
