@@ -7,6 +7,7 @@ web_search = "live"
 
 [features]
 js_repl = true
+multi_agent = true
 
 [mcp_servers.chrome-devtools]
 command = "npx"
