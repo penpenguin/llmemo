@@ -5,7 +5,8 @@ description: Turn rough coding, repo, research, refactor, migration, audit, bug-
 
 # Goal Builder
 
-Convert a fuzzy request into a durable, evidence-checked `GOAL.md` and a short `/goal` launcher. Act as a goal contract designer, not as an implementer.
+Convert a fuzzy request into a durable, evidence-checked `GOAL.md` and a short `/goal` launcher. Act as a goal contract designer, not as an implementer.  
+Please output GOAL.md as the final deliverable.
 
 ## Core contract
 
@@ -25,7 +26,7 @@ Default output language: match the user's language. If the user writes Japanese,
 
 In this skill, do not implement the feature, fix the bug, run long tasks, deploy, commit, open PRs, or start `/goal` unless the user explicitly asks for activation in an environment that supports it. The normal deliverable is a drafted or updated goal contract.
 
-Read files only when they are needed to make the goal accurate. Prefer read-only inspection of `README`, `AGENTS.md`, `CLAUDE.md`, specs, issues, package files, test config, or existing `GOAL.md` / `SPEC.md`. Please do not modify any files in the repository except for GOAL.md.
+Read files only when they are needed to make the goal accurate. Prefer read-only inspection of `README`, `AGENTS.md`, `CLAUDE.md`, specs, issues, package files, test config, or existing `SPEC.md`. Please do not modify any files in the repository except for GOAL.md.
 
 ## Decide whether `/goal` is appropriate
 
