@@ -285,7 +285,7 @@ If the quality check fails, show the blocking gaps and ask only the minimum ques
 
 When a goal is appropriate, return exactly these sections:
 
-1. `GOAL.md`
+1. `Path to GOAL.md`
 2. `/goal に貼る指示`
 3. `Assumptions`
 4. `Quality check`
