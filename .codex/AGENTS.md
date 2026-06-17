@@ -10,6 +10,3 @@
 - Prefer fast unit tests with Vitest + jsdom; add E2E only for critical flows.
 - Keep production code minimal to satisfy current tests; refactor safely after green.
 - Commit in small increments that reflect TDD phases where practical.
-
-# ExecPlans
-When writing complex features or significant refactors, use an ExecPlan (as described in .agent/PLANS.md) from design to implementation.
