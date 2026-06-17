@@ -19,11 +19,20 @@ Before writing code, produce:
 4. Extraction sequence
 5. Risk notes
 
+Planning scope:
+- Inspect the target file, imports, callers, and nearby tests before finalizing boundaries.
+- If the contents are not available yet, label the concern map and boundaries as provisional, list what must be inspected, and do not infer existing concerns from the filename alone.
+- Even when provisional, still emit all five planning sections and list ui / transport-facing, application, domain, and infrastructure entries when they are relevant.
+- If no existing layer or module conventions are found, propose concrete provisional file paths using the feature name and mark them replaceable after repo conventions are inspected.
+- For urgent or explicitly small fixes in an already mixed file, plan the smallest extraction that isolates the behavior being changed first; defer broader layer cleanup unless it is required for the fix.
+
 TypeScript layer defaults:
-- ui: components, route handlers, request/response mapping
+- ui / transport-facing: components, route handlers, middleware, request/response mapping
 - application: use cases, orchestration, transaction flow
 - domain: entities, value objects, policies, pure functions
 - infrastructure: prisma/sql, repositories, http clients, cache, queue
+
+For non-React HTTP APIs such as Express, Hono, or Nest, treat route handlers, middleware, request parsing, and response mapping as the ui / transport-facing boundary.
 
 Hard rules:
 - domain must not import react, next/*, express, hono, @nestjs/*, @prisma/*, axios, fetch wrappers

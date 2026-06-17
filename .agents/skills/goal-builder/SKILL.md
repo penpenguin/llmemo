@@ -27,6 +27,8 @@ In this skill, do not implement the feature, fix the bug, run long tasks, deploy
 
 Read files only when they are needed to make the goal accurate. Prefer read-only inspection of `README`, `AGENTS.md`, `CLAUDE.md`, specs, issues, package files, test config, or existing `GOAL.md` / `SPEC.md`. Please do not modify any files in the repository except for GOAL.md.
 
+When the user asks to update an existing `GOAL.md`, read it before drafting changes. Preserve unresolved notes, incomplete checklist items, decisions, and user-authored constraints unless the user explicitly asks to remove them. Edit the file directly only when every preserved item has a clear destination in the revised structure and can be kept intact; otherwise show the proposed replacement or ask before writing. In the final response, state whether `GOAL.md` was edited on disk or only provided as replacement text.
+
 ## Decide whether `/goal` is appropriate
 
 Use `/goal` when the task is larger than one prompt and has a durable objective, iterative work, and verifiable evidence of completion.
