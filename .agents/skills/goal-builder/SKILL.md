@@ -5,7 +5,8 @@ description: Turn rough coding, repo, research, refactor, migration, audit, bug-
 
 # Goal Builder
 
-Convert a fuzzy request into a durable, evidence-checked `GOAL.md` and a short `/goal` launcher. Act as a goal contract designer, not as an implementer.
+Convert a fuzzy request into a durable, evidence-checked `GOAL.md` and a short `/goal` launcher. Act as a goal contract designer, not as an implementer.  
+Please output GOAL.md as the final deliverable.
 
 ## Core contract
 
@@ -25,7 +26,7 @@ Default output language: match the user's language. If the user writes Japanese,
 
 In this skill, do not implement the feature, fix the bug, run long tasks, deploy, commit, open PRs, or start `/goal` unless the user explicitly asks for activation in an environment that supports it. The normal deliverable is a drafted or updated goal contract.
 
-Read files only when they are needed to make the goal accurate. Prefer read-only inspection of `README`, `AGENTS.md`, `CLAUDE.md`, specs, issues, package files, test config, or existing `GOAL.md` / `SPEC.md`. Please do not modify any files in the repository except for GOAL.md.
+Read files only when they are needed to make the goal accurate. Prefer read-only inspection of `README`, `AGENTS.md`, `CLAUDE.md`, specs, issues, package files, test config, or existing `SPEC.md`. Please do not modify any files in the repository except for GOAL.md.
 
 When the user asks to update an existing `GOAL.md`, read it before drafting changes. Preserve unresolved notes, incomplete checklist items, decisions, and user-authored constraints unless the user explicitly asks to remove them. Edit the file directly only when every preserved item has a clear destination in the revised structure and can be kept intact; otherwise show the proposed replacement or ask before writing. In the final response, state whether `GOAL.md` was edited on disk or only provided as replacement text.
 
@@ -286,7 +287,7 @@ If the quality check fails, show the blocking gaps and ask only the minimum ques
 
 When a goal is appropriate, return exactly these sections:
 
-1. `GOAL.md`
+1. `Path to GOAL.md`
 2. `/goal に貼る指示`
 3. `Assumptions`
 4. `Quality check`
