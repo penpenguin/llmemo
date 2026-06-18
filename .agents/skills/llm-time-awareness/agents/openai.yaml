@@ -1,0 +1,6 @@
+interface:
+  display_name: "LLM Time Awareness"
+  short_description: "Generate and consume TIME_CONTEXT for turn-by-turn temporal awareness."
+  default_prompt: "Use the llm-time-awareness skill to generate TIME_CONTEXT before the next LLM call."
+policy:
+  allow_implicit_invocation: true

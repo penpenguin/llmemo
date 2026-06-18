@@ -1,0 +1,21 @@
+{
+  "now_utc": "2026-06-18T13:42:10+00:00",
+  "now_local": "2026-06-18T22:42:10+09:00",
+  "user_timezone": "Asia/Tokyo",
+  "turn_index": 18,
+  "last_user_turn_at_utc": "2026-06-18T09:05:21+00:00",
+  "last_user_turn_at_local": "2026-06-18T18:05:21+09:00",
+  "last_assistant_turn_at_utc": "2026-06-18T09:05:45+00:00",
+  "last_assistant_turn_at_local": "2026-06-18T18:05:45+09:00",
+  "elapsed_since_last_user_turn_seconds": 16609,
+  "elapsed_since_last_user_turn_human": "約4時間36分",
+  "elapsed_since_last_assistant_turn_seconds": 16585,
+  "elapsed_since_last_assistant_turn_human": "約4時間36分",
+  "elapsed_label": "long_pause",
+  "local_date_changed_since_last_turn": false,
+  "time_of_day": "late_night",
+  "time_flags": [
+    "night",
+    "substantial_gap_since_last_turn"
+  ]
+}

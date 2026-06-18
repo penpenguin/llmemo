@@ -1,0 +1,14 @@
+[
+  {
+    "role": "system",
+    "content": "Use TIME_CONTEXT as the source of truth for temporal chat context. Mention time only when it improves the answer."
+  },
+  {
+    "role": "system",
+    "content": "<TIME_CONTEXT>\n{\n  \"now_local\": \"2026-06-18T22:42:10+09:00\",\n  \"user_timezone\": \"Asia/Tokyo\",\n  \"elapsed_label\": \"long_pause\",\n  \"time_of_day\": \"late_night\",\n  \"time_flags\": [\"night\", \"substantial_gap_since_last_turn\"]\n}\n</TIME_CONTEXT>"
+  },
+  {
+    "role": "user",
+    "content": "続きをお願い"
+  }
+]

@@ -11,5 +11,6 @@ targets:
 dependencies:
   apm: []
   mcp: []
-includes: auto
+includes: 
+  - .agents/skills
 scripts: {}

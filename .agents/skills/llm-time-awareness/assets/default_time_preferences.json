@@ -1,0 +1,10 @@
+{
+  "timezone_name": "Asia/Tokyo",
+  "workday_start": "09:00",
+  "workday_end": "18:00",
+  "early_morning_start": "04:00",
+  "early_morning_end": "07:00",
+  "late_night_start": "22:00",
+  "deep_night_start": "02:00",
+  "deep_night_end": "04:00"
+}

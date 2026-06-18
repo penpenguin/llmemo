@@ -1,0 +1,10 @@
+[project]
+name = "llm-time-awareness-skill"
+version = "0.2.0"
+description = "Skill bundle for turn-by-turn LLM time interval awareness."
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

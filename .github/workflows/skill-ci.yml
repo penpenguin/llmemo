@@ -1,0 +1,62 @@
+name: Skill CI
+
+on:
+  pull_request:
+    paths:
+      - 'apm.yml'
+      - 'apm-policy.yml'
+      - '.apm/**'
+      - '.github/workflows/skill-ci.yml'
+      - 'scripts/skill_guard.py'
+  push:
+    branches:
+      - main
+    paths:
+      - 'apm.yml'
+      - 'apm-policy.yml'
+      - '.apm/**'
+      - '.github/workflows/skill-ci.yml'
+      - 'scripts/skill_guard.py'
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  skill-guard:
+    name: Validate approved skills
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Setup APM CLI
+        uses: microsoft/apm-action@v1
+        with:
+          setup-only: true
+
+      - name: Validate APM package shape
+        run: apm compile --validate
+
+      - name: Scan skill content
+        run: python3 scripts/skill_guard.py .apm/skills --sarif skill-guard.sarif
+        env:
+          # Empty means every http(s) URL in a skill is blocked. Add comma-separated
+          # hosts only after review, e.g. "github.com,docs.github.com".
+          ALLOWED_EXTERNAL_URL_HOSTS: ''
+          # Keep helper scripts disabled by default; flip only for explicitly
+          # reviewed skills that require scripts/ helpers.
+          ALLOW_SKILL_SCRIPTS: 'false'
+
+      - name: Upload Skill Guard SARIF
+        if: always()
+        continue-on-error: true
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: skill-guard.sarif
+          category: skill-guard

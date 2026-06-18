@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/time_context.schema.json",
+  "title": "TIME_CONTEXT",
+  "type": "object",
+  "required": [
+    "now_utc",
+    "now_local",
+    "user_timezone",
+    "turn_index",
+    "elapsed_label",
+    "local_date_changed_since_last_turn",
+    "time_of_day",
+    "time_flags"
+  ],
+  "properties": {
+    "now_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "now_local": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "user_timezone": {
+      "type": "string",
+      "examples": ["Asia/Tokyo", "America/Los_Angeles"]
+    },
+    "turn_index": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "last_user_turn_at_utc": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "last_user_turn_at_local": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "last_assistant_turn_at_utc": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "last_assistant_turn_at_local": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "elapsed_since_last_user_turn_seconds": {
+      "type": ["number", "null"]
+    },
+    "elapsed_since_last_user_turn_human": {
+      "type": ["string", "null"]
+    },
+    "elapsed_since_last_assistant_turn_seconds": {
+      "type": ["number", "null"]
+    },
+    "elapsed_since_last_assistant_turn_human": {
+      "type": ["string", "null"]
+    },
+    "elapsed_label": {
+      "type": "string",
+      "enum": [
+        "first_turn_or_unknown",
+        "clock_skew_or_out_of_order",
+        "immediate_followup",
+        "short_pause",
+        "medium_pause",
+        "long_pause",
+        "next_day_or_large_gap",
+        "stale_context"
+      ]
+    },
+    "local_date_changed_since_last_turn": {
+      "type": "boolean"
+    },
+    "time_of_day": {
+      "type": "string",
+      "enum": [
+        "deep_night",
+        "early_morning",
+        "morning",
+        "midday",
+        "afternoon",
+        "evening",
+        "late_night"
+      ]
+    },
+    "time_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  },
+  "additionalProperties": true
+}
