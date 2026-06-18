@@ -1,0 +1,15 @@
+name: llmemo
+version: 1.0.0
+description: APM project for llmemo
+author: penpenguin
+# Which agent platforms to deploy to.
+# Resolution order: --target flag > this field > auto-detect from filesystem.
+# Accepted values: copilot, claude, cursor, opencode, codex, gemini, windsurf, all
+targets:
+- claude
+- codex
+dependencies:
+  apm: []
+  mcp: []
+includes: auto
+scripts: {}
