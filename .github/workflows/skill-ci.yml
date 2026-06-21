@@ -3,28 +3,25 @@ name: Skill CI
 on:
   pull_request:
     paths:
-      - 'apm.yml'
-      - 'apm-policy.yml'
-      - '.apm/**'
+      - '.agents/skills/**'
       - '.github/workflows/skill-ci.yml'
-      - 'scripts/skill_guard.py'
+      - 'scripts/validate_agent_skills.py'
+      - 'tests/**'
   push:
     branches:
       - main
     paths:
-      - 'apm.yml'
-      - 'apm-policy.yml'
-      - '.apm/**'
+      - '.agents/skills/**'
       - '.github/workflows/skill-ci.yml'
-      - 'scripts/skill_guard.py'
+      - 'scripts/validate_agent_skills.py'
+      - 'tests/**'
 
 permissions:
   contents: read
-  security-events: write
 
 jobs:
   skill-guard:
-    name: Validate approved skills
+    name: Validate agent skills
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -33,30 +30,30 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: '3.11'
 
-      - name: Setup APM CLI
-        uses: microsoft/apm-action@v1
-        with:
-          setup-only: true
+      - name: Validate CI contract
+        run: python3 -m unittest discover -s tests
 
-      - name: Validate APM package shape
-        run: apm compile --validate
+      - name: Validate skill bundles
+        run: python3 scripts/validate_agent_skills.py .agents/skills
 
-      - name: Scan skill content
-        run: python3 scripts/skill_guard.py .apm/skills --sarif skill-guard.sarif
-        env:
-          # Empty means every http(s) URL in a skill is blocked. Add comma-separated
-          # hosts only after review, e.g. "github.com,docs.github.com".
-          ALLOWED_EXTERNAL_URL_HOSTS: ''
-          # Keep helper scripts disabled by default; flip only for explicitly
-          # reviewed skills that require scripts/ helpers.
-          ALLOW_SKILL_SCRIPTS: 'false'
+      - name: Install test runner
+        run: python3 -m pip install pytest
 
-      - name: Upload Skill Guard SARIF
-        if: always()
-        continue-on-error: true
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: skill-guard.sarif
-          category: skill-guard
+      - name: Run skill unit tests
+        run: |
+          set -euo pipefail
+          found=0
+          for pyproject in .agents/skills/*/pyproject.toml; do
+            [ -e "$pyproject" ] || continue
+            skill_dir="$(dirname "$pyproject")"
+            if [ -d "$skill_dir/tests" ]; then
+              found=1
+              echo "Running tests in $skill_dir"
+              python3 -m pytest "$skill_dir/tests" --rootdir "$skill_dir"
+            fi
+          done
+          if [ "$found" -eq 0 ]; then
+            echo "No skill unit tests found."
+          fi
