@@ -2,11 +2,15 @@
 - 本プロジェクトに関する会話は原則として日本語で行います。
 - コミットメッセージやコード内コメントは英語でも問題ありません。
 
-# Development Approach (TDD - MUST)
-- Strict policy: all code changes follow TDD.
-- Red → Green → Refactor in the smallest possible steps.
-- Start from the simplest failing test; use triangulation to evolve behavior.
-- Write a failing test for any bug before fixing it.
-- Prefer fast unit tests with Vitest + jsdom; add E2E only for critical flows.
-- Keep production code minimal to satisfy current tests; refactor safely after green.
-- Commit in small increments that reflect TDD phases where practical.
+# コーディングの基本方針
+実装時は、情報の種類に応じて記載先を分ける。
+- **コードには How**  
+  処理をどのように実現しているかを、命名と構造で表現する。
+- **テストコードには What**  
+  システムが何を満たし、どのように振る舞うべきかを記述する。内部実装ではなく、外部から観測できる振る舞いを優先する。
+- **コミットログには Why**  
+  なぜその変更が必要だったのか、問題・要件・背景を残す。差分を読み上げるだけの説明は避ける。
+- **コードコメントには Why not**  
+  なぜ一見自然な別案を採用しなかったのか、制約や不採用理由を残す。コードをそのまま説明するコメントは避ける。
+コードやテストから自明な内容を、コメントやコミットログに重複して書かない。
+コミットログには変更理由を、コードコメントには制約や代替案の不採用理由を記録し、コードや差分だけでは失われる判断を残す。
