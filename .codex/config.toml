@@ -1,10 +1,11 @@
-hide_agent_reasoning = true
-model = "gpt-5.5"
-plan_mode_reasoning_effort = "xhigh"
-model_reasoning_effort = "xhigh"
+model = "gpt-5.6-sol"
+model_reasoning_effort = "max"
+plan_mode_reasoning_effort = "max"
+
 network_access = true
-personality = "pragmatic"
 web_search = "live"
+personality = "pragmatic"
+approvals_reviewer = "auto_review"
 
 [features]
 js_repl = true
