@@ -9,7 +9,8 @@ targets:
 - claude
 - codex
 dependencies:
-  apm: []
+  apm:
+    - nanaism/yomiyasu#main
   mcp: []
 includes: 
   - .agents/skills

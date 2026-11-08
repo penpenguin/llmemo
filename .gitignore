@@ -1,3 +1,7 @@
 __pycache__/
 *.py[cod]
 .serena/
+
+
+# APM dependencies
+apm_modules/
